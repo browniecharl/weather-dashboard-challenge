@@ -8,35 +8,69 @@
     <link rel="stylesheet" href="./assets/css/stylesheet.css">
     <title>Weather Dashboard</title>
 </head>
-<body class="flex-column ms-3 me-3 mt-1">
-    <div class="justify-content-center bg-primary text-white mx-auto">
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-12">
-          <h1 class="display-4 text-center"> Weather Dashboard </h1>
-    </div>
-    </div>
-    </div>
 
-    <!--Main section-->
-    <div class="container-fluid">
+<body>
+    <header>
+        <h1 class="text-center ">Weather Dashboard</h1>
+    </header>
+    <div class="container">
         <div class="row">
-            <div class="col-3 border-1">
-                <div class="headerSearch ro mx-3">
-                    <h3>Search For a City:</h3>
+            <div class="col-3 bg-light">
+                <h3 class="search my-1">Search for a city:</h3>
+                <div class="input-group mb-3">
+                    <input class="form-control" id="searchCity" type="text" placeholder="Enter city name">
+                    <div class="input-group-append">
+                        <button type="button" class="btn" id="searchBtn">Get Weather</button>
+                    </div>
                 </div>
-                <div class="formInput row ml-3">
-                    <input class="border" type="text" id="citySearch">
-                    <button type="button" class="btn btn-primary btn-md border-0 mt-2" id="searchButton">Search</button>
-                </div>
-                <div class="list-group row m-3" id="city-history"></div>
-            </div>
-            <div class="col-9">
-                <div class="row border m-3" id="chosenCity"></div>
-                <div class="row m-3" id="cityInfo"></div>
+                <div>
+                <ul id="searchhistory" class="w-100">
+
+                </ul>
             </div>
         </div>
-      </div>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-      <script src="./assets/js/script.js"></script>
+        <div class="col-9">
+            <div class="row mr-0">
+                <div id="currentWeather" class="col-12 border rounded m-3 rounded">
+                    <div class="row">
+                        <div class="col-12">
+                            <span id="city" class="city align-middle"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p id="temp"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p id="humidity"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p id="wind"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex">
+                            <p id="UV"></p>
+                            <p id="UVvalue"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h3>5-Day Forecast</h3>
+                </div>
+            </div>
+                <div id="fiveday" class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
-</html>

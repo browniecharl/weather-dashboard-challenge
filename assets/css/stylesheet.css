@@ -1,0 +1,27 @@
+h1 {
+    background-image: linear-gradient(to right, blue, purple);
+    color: white;
+}
+
+.btn {
+    background-color: blue;
+    color: white;
+}
+
+.container {
+    margin-right: 40px;
+    margin-left: 30px;
+}
+
+.five {
+    margin-right: 10px;
+}
+
+li {
+    font-size: 20px;
+}
+
+ul :hover {
+    color: white;
+    background-color: blue;
+}
