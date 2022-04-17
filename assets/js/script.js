@@ -7,9 +7,8 @@ var windEl = document.getElementById("wind")
 var humidityEl = document.getElementById("humidity")
 var tempEl = document.getElementById("temp")
 var searchHistoryEl = document.getElementById("searchhistory")
+var fiveDayHeader = document.getElementById("fiveDayTitle")
 
-var currentData;
-// function to save city to local storage  
 function handleSearchFormSubmit(event) {
     event.preventDefault();
 
@@ -25,8 +24,6 @@ if (!searchInputVal) {
 }
 getApi(searchInputVal);
 }
-
-// function to get api
 function getApi(city) {
 var forecastApi = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=775e103db5d395971a8a5055dde627a8&units=imperial";
 var weatherApi = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=775e103db5d395971a8a5055dde627a8&units=imperial";
@@ -49,6 +46,7 @@ fiveDayData = data;
 for (i=4; i < fiveDayData.list.length; i+=8) {
     var card = document.createElement("div");
     card.classList.add("col", "five", "text-white", "bg-primary", "ml-3", "mb-3", "rounded")
+    fiveDayHeader.textContent = "5 Day Forecast:"
     var date = document.createElement("h2")
     var fiveDates = data.list[i].dt_txt;
     date.textContent = new Date(fiveDates).toLocaleDateString();
@@ -71,7 +69,6 @@ fetch(weatherApi)
         }
         return response.json();
     })
-    //loops array within 5 day
     .then(function(data) {
         currentData = data;
         displayCityInfo(currentData)
@@ -89,15 +86,11 @@ function displayCityInfo(currentData){
     displayCityInfo.append(document.createTextNode(currentData.name + " "));
     displayCityInfo.append(document.createTextNode(" (" + todaysDate + ")"));
     displayCityInfo.append(weatherIcon);
-
     tempEl.append(document.createTextNode("Temperature: " + currentData.main.temp));
     humidityEl.append(document.createTextNode("Humidity: " + currentData.main.humidity + "%"));
     windEl.append(document.createTextNode("Wind Speed: " + currentData.wind.speed + "Mph"));
     uvEl.append(document.createTextNode("UV Index: "));
-
 }
-
-//function to get uv index
 function getUV(latitude, longitude) {
     var uvApi = "http://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longitude + "&appid=775e103db5d395971a8a5055dde627a8";
     fetch(uvApi)
@@ -124,7 +117,6 @@ function uvStyle(uvData) {
         uvValue.style.backgroundColor = "violet";
     }
 }
- // function to display history
  function displayHistory(city) {
      var cityName = document.createElement("li");
      cityName.textContent = city.toUpperCase();
