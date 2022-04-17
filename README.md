@@ -13,11 +13,8 @@ A website that offers the weather outlook for multiple cities so that a trip can
 * Server-Side API - OpenWeather API 
 
 ## Website
+https://browniecharl.github.io/weather-dashboard-challenge/
 
 
 ## Contribution
 Made by Robert Velez
-
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
